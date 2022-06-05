@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'development') {
 const BASE_URL = process.env.BASE_URL || ''
 const PORT = process.env.PORT || 3002
 
-const publicPath = path.resolve(__dirname, './public')
+const publicPath = path.resolve(__dirname, 'public')
 
 const init = async () => {
   const app = express()

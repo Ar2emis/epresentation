@@ -1,5 +1,6 @@
 const { build } = require('esbuild');
 const fs = require('fs-extra');
+const { yamlPlugin } = require('esbuild-plugin-yaml');
 
 const generateBuild = async () => {
   if (fs.existsSync('./build/public/static')) await fs.rm('./build/public/static', { recursive: true })
@@ -17,10 +18,13 @@ const generateBuild = async () => {
     incremental: true,
     minify: true,
     outdir: './build/public//static/',
-    plugins: [],
+    plugins: [yamlPlugin()],
   }).catch(() => process.exit(1))
 
     fs.copyFile('./src/client/index.html', './build/public/index.html', (err) => {
+      if (err) throw err
+    })
+    fs.copyFile('./src/client/assets/images/favicon.ico', './build/public/favicon.ico', (err) => {
       if (err) throw err
     })
 

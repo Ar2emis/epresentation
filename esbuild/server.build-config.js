@@ -8,8 +8,8 @@ const { build } = require('esbuild');
     loader: { '.svg': 'dataurl', '.png': 'dataurl' },
     define: {
       'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'Production',
-      ),
+        process.env.NODE_ENV || 'development',
+      )
     },
     entryPoints: ['./src/server/index.js'],
     incremental: true,

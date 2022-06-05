@@ -1,0 +1,118 @@
+---
+data:
+  id: code_quality
+  title: Code Quality
+  description: Code Quality questions and answers for EPAM students
+  slides:
+    - body:
+        - type: p
+          text: Slide 1 text
+        - type: p
+          hidden: true
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vivamus elementum sed mi eu commodo. Fusce auctor sollicitudin mi.
+            Curabitur nulla urna, convallis et ligula eu, egestas venenatis ipsum. Donec consequat fermentum aliquet.
+            Maecenas eu semper diam. Aliquam leo ante, tempor et pharetra eget, tincidunt commodo dolor.
+            Vivamus faucibus tortor quis odio venenatis, nec vehicula eros iaculis.
+        - type: code
+          language: ruby
+          hidden: true
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+        - type: code
+          language: ruby
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+        - type: code
+          language: ruby
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+        - type: code
+          language: ruby
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+        - type: code
+          language: ruby
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+    - body:
+        - type: p
+          text: Slide 1 text
+        - type: p
+          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vivamus elementum sed mi eu commodo. Fusce auctor sollicitudin mi.
+            Curabitur nulla urna, convallis et ligula eu, egestas venenatis ipsum. Donec consequat fermentum aliquet.
+            Maecenas eu semper diam. Aliquam leo ante, tempor et pharetra eget, tincidunt commodo dolor.
+            Vivamus faucibus tortor quis odio venenatis, nec vehicula eros iaculis.
+        - type: comparison
+          hidden: true
+          language: ruby
+          left: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+          right: |-
+            # prints Hello World
+            def hello_world = puts('Hello World!')
+        - type: code
+          language: ruby
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+        - type: code
+          language: ruby
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+        - type: code
+          language: ruby
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+        - type: code
+          language: ruby
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
+
+    - title: Slide 2
+      body:
+      - type: p
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Vivamus elementum sed mi eu commodo. Fusce auctor sollicitudin mi.
+          Curabitur nulla urna, convallis et ligula eu, egestas venenatis ipsum. Donec consequat fermentum aliquet.
+          Maecenas eu semper diam. Aliquam leo ante, tempor et pharetra eget, tincidunt commodo dolor.
+          Vivamus faucibus tortor quis odio venenatis, nec vehicula eros iaculis.
+    - title: Slide 3
+      body:
+        - type: code
+          language: ruby
+          text: |-
+            # prints Hello World
+            def hello_world
+              puts 'Hello world!'
+            end
