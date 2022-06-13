@@ -4,115 +4,639 @@ data:
   title: Code Quality
   description: Code Quality questions and answers for EPAM students
   slides:
-    - body:
-        - type: p
-          text: Slide 1 text
+    - title: Code Quality
+    - title: What is it and why do we care about it?
+      body:
         - type: p
           hidden: true
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Vivamus elementum sed mi eu commodo. Fusce auctor sollicitudin mi.
-            Curabitur nulla urna, convallis et ligula eu, egestas venenatis ipsum. Donec consequat fermentum aliquet.
-            Maecenas eu semper diam. Aliquam leo ante, tempor et pharetra eget, tincidunt commodo dolor.
-            Vivamus faucibus tortor quis odio venenatis, nec vehicula eros iaculis.
+          text: >
+            Code Quality is a set of metrics that determines how good the code is. There are main metrics:
+            maintainability, clarity, testability, portability, robustness, reusability, complexity, safety, security.
+            Code Quality is important 'cause it prevents lots of issues over the long run.
+    - title: Maintainability?
+      body:
+        - type: p
+          hidden: true
+          text: >
+            Over the long run features amount is growing, some of them are evolve or disappear. That's why code must be
+            easy to modify, extend or fix. Bad code won't last long.
+    - title: Clarity?
+      body:
+        - type: p
+          hidden: true
+          text: >
+            Write code that's easy to read and understand. Don't be too clever and write cryptic code that's hard to 
+            follow or easily misunderstood. You don't want other engineers or yourself to spend a lot of time trying to 
+            decipher a bug in your code. Rooting out an odd indentation, niche formatting, or errant lines of code 
+            takes time. All of that refactoring adds inefficiency and cost to projects, which affects the maintainable 
+            quality of code.
+    - title: Testability?
+      body:
         - type: code
           language: ruby
           hidden: true
           text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
+            def good_code?(code)
+              code.easy_to_test?
             end
-        - type: code
-          language: ruby
-          text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
-            end
-        - type: code
-          language: ruby
-          text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
-            end
-        - type: code
-          language: ruby
-          text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
-            end
-        - type: code
-          language: ruby
-          text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
-            end
-    - body:
+    - title: Portability?
+      body:
         - type: p
-          text: Slide 1 text
+          hidden: true
+          text: Frameworks are temporary, Projects are eternal... © Me
         - type: p
-          text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Vivamus elementum sed mi eu commodo. Fusce auctor sollicitudin mi.
-            Curabitur nulla urna, convallis et ligula eu, egestas venenatis ipsum. Donec consequat fermentum aliquet.
-            Maecenas eu semper diam. Aliquam leo ante, tempor et pharetra eget, tincidunt commodo dolor.
-            Vivamus faucibus tortor quis odio venenatis, nec vehicula eros iaculis.
+          hidden: true
+          text: >
+            Code that depends on frameworks too much will cause enourmous transition costs and additional pain in the 
+            *ss.
+    - title: Robustness?
+      body:
+        - type: p
+          hidden: true
+          text: >
+            Don't be naive. Nobody knows your work better than you. Some edge case scenarios could be not obvious: 
+            nulls, empty strings, arrays or hashes. That's could cause problems for you and others.
+        - type: p
+          hidden: true
+          text: >
+            That's why QA's is so meticulous)
+    - title: Reusability?
+      body:
+        - type: p
+          hidden: true
+          text: >
+            Reusable code saves your time and brains. Also that means it could be tested independently from places of 
+            usage.
+    - title: Complexity?
+      body:
+        - type: comparison
+          language: ruby
+          hidden: true
+          left: |-
+            def styles(type)
+              if type == :alert then 'red'
+              elsif type == :notification then 'blue'
+              elsif type == :success then 'green'
+              elsif type == :warning then 'yellow'
+              end
+            end
+
+            # Who are you?
+          right: |-
+            STYLES = {
+              alert: 'red',
+              notification: 'blue',
+              success: 'green',
+              warning: 'yellow'
+            }.freeze
+
+            def styles(type)
+              STYLES[type]
+            end
+
+            # I'm you but better
+    - title: Safety?
+      body:
+        - type: p
+          hidden: true
+          text: >
+            Some of coding constructs are unsafe (divide by zero, null, empty strings, ...) and can cause a dreadful 
+            condition. Avoid or be sure that you handles that.
+    - title: Security?
+      body:
+        - type: p
+          hidden: true
+          text: >
+            Make sure to apply a static analysis solutions or other coding standards that will identify insecure and 
+            vulnerable conditions (buffer overflows, information leakage, script injection, and so on) for an attack.
+        - type: p
+          hidden: true
+          text: Dont be Facebook)
+    - title: How can we increase the code quality?
+      body:
+        - type: p
+          hidden: true
+          text: >
+            Different static code analysis tools, git hooks, code conventions, test coverage tools, programming 
+            principles and etc...
+    - title: What programming principles force us to write better code?
+      body:
+        - type: p
+          hidden: true
+          center: true
+          text: >
+            SOLID, YAGNI, KISS, DRY, TDD...
+    - title: Let's cut to the chase
+    - title: Would you solder a lamp directly to the electrical wiring in the wall?
+      body:
         - type: comparison
           hidden: true
           language: ruby
           left: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
-            end
-          right: |-
-            # prints Hello World
-            def hello_world = puts('Hello World!')
-        - type: code
-          language: ruby
-          text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
-            end
-        - type: code
-          language: ruby
-          text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
-            end
-        - type: code
-          language: ruby
-          text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
-            end
-        - type: code
-          language: ruby
-          text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
+            class Lamp
+              def connectors_amount = 2
+
+              def plug(outlet)
+                raise 'Different outlet type!' if outlet.holes_amount != connectors_amount
+
+                # do light things...
+              end
             end
 
-    - title: Slide 2
+            class EuropeanOutlet
+              def holes_amount = 2
+            end
+
+            class AmericanOutlet
+              def holes_amount = 3
+            end
+
+            lamp = Lamp.new
+
+            lamp.plug(EuropeanOutlet.new) # works
+            lamp.plug(AmericanOutlet.new) # error :(
+          right: |-
+            class Lamp
+              def connectors_amount = 2
+
+              def plug(power_source)
+                # do light things...
+              end
+            end
+
+            class EuropeanOutlet
+              def holes_amount = 2
+            end
+
+            class AmericanOutlet
+              def holes_amount = 3
+            end
+
+            class OutletAdapter
+              attr_reader :holes_count
+
+              def initialize(holes_count, outlet)
+                @holes_count = holes_count
+                @outlet = outlet
+              end
+            end
+
+            lamp = Lamp.new
+            european_adapter = OutletAdapter.new(lamp.connectors_amount, EuropeanOutlet.new)
+            american_adapter = OutletAdapter.new(lamp.connectors_amount, AmericanOutlet.new)
+            lamp.plug(european_adapter) # works
+            lamp.plug(american_adapter) # works too :)
+    - title: >
+        If it looks like a duck and quacks like a duck but needs batteries, you probably have the wrong abstraction...
       body:
-      - type: p
-        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Vivamus elementum sed mi eu commodo. Fusce auctor sollicitudin mi.
-          Curabitur nulla urna, convallis et ligula eu, egestas venenatis ipsum. Donec consequat fermentum aliquet.
-          Maecenas eu semper diam. Aliquam leo ante, tempor et pharetra eget, tincidunt commodo dolor.
-          Vivamus faucibus tortor quis odio venenatis, nec vehicula eros iaculis.
-    - title: Slide 3
+        - type: comparison
+          hidden: true
+          language: ruby
+          left: |-
+            class Duck
+              def quack
+                puts 'Quack!'
+              end
+            end
+
+            class RubberDuck < Duck
+              def initialize(batteries)
+                @batteries = batteries
+              end
+            end
+          right: |-
+            class Toy
+              def initialize(batteries)
+                @batteries = batteries
+              end
+            end
+
+            class RubberDuck < Toy
+              def quack
+                puts 'Quack!'
+              end
+            end
+    - title: Just because you can doesn't mean you should...
       body:
+        - type: comparison
+          hidden: true
+          language: ruby
+          left: |-
+            class SwissKnife
+              def cut
+                # ...
+              end
+
+              def eat
+                # ...
+              end
+
+              def saw
+                # ...
+              end
+
+              def trim
+                # ...
+              end
+
+              def uncork
+                # ...
+              end
+            end
+          right: |-
+            class Knife
+              def cut
+                # ...
+              end
+            end
+
+            class Spoon
+              def eat
+                # ...
+              end
+            end
+
+            class Scissors
+              def trim
+                # ...
+              end
+            end
+
+            class Saw
+              def saw
+                # ...
+              end
+            end
+
+            class Corkscrew
+              def uncork
+                # ...
+              end
+            end
+    - title: You want me to plug this in where?
+      body:
+        - type: comparison
+          hidden: true
+          language: ruby
+          left: |-
+            module Development
+              def do_backend
+                puts "I'm coding backend"
+              end
+
+              def do_frontend
+                puts "I'm coding frontend"
+              end
+            end
+
+            class BackendDeveloper
+              include Development
+
+              def code
+                do_backend
+              end
+            end
+
+            class FrontendDeveloper
+              include Development
+
+              def code
+                do_frontend
+              end
+            end
+
+            class FullStackDeveloper
+              include Development
+
+              def code
+                do_backend
+                do_frontend
+              end
+            end
+          right: |-
+            module BackendDevelopment
+              def do_backend
+                puts "I'm coding backend"
+              end
+            end
+
+            module FrontendDevelopment
+              def do_frontend
+                puts "I'm coding frontend"
+              end
+            end
+
+            class BackendDeveloper
+              include BackendDevelopment
+
+              def code
+                do_backend
+              end
+            end
+
+            class FrontendDeveloper
+              include FrontendDevelopment
+
+              def code
+                do_frontend
+              end
+            end
+
+            class FullStackDeveloper
+              include BackendDevelopment
+              include FrontendDevelopment
+
+              def code
+                do_backend
+                do_frontend
+              end
+            end
+    - title: Open-chest surgery isn't needed when putting on a coat...
+      body:
+        - type: comparison
+          hidden: true
+          language: ruby
+          left: |-
+            class BackendDeveloper
+              def code
+                do_backend
+              end
+
+              private
+
+              def do_backend
+                puts "I'm coding backend"
+              end
+            end
+
+            class BackendDeveloper
+              def code
+                do_backend
+                do_frontend
+              end
+
+              private
+
+              def do_frontend
+                puts "I'm coding frontend"
+              end
+            end
+          right: |-
+            class BackendDeveloper
+              def code
+                do_backend
+              end
+
+              private
+
+              def do_backend
+                puts "I'm coding backend"
+              end
+            end
+
+            class FullStackDeveloper < BackendDeveloper
+              def code
+                super
+                do_frontend
+              end
+
+              private
+
+              def do_frontend
+                puts "I'm coding frontend"
+              end
+            end
+    - title: |-
+        Make code better
+    - title: Something really wet is going there...
+      body:
+        - type: comparison
+          hidden: true
+          language: ruby
+          left: |-
+            class Dog
+              def meet_owner
+                go_to_the_door
+                puts 'GUF-GUF'
+              end
+
+              def ask_for_food
+                go_to_the_kitchen
+                puts 'GUF-GUF'
+              end
+
+              def ask_for_a_walk
+                go_to_the_door
+                puts 'GUF-GUF'
+              end
+
+              private
+
+              def go_to_the_door = @position = :entrance
+
+              def go_to_the_kitchen = @position = :kitchen
+            end
+          right: |-
+            class Dog
+              def meet_owner = go_to(:entrance) && bark
+
+              alias ask_for_a_walk meet_owner
+
+              def ask_for_food = go_to(:kitchen) && bark
+
+              private
+
+              def go_to(position) = @position = position
+              
+              def bark = puts('GUF-GUF')
+            end
+    - title: Love is...
+      body:
+        - type: comparison
+          hidden: true
+          language: ruby
+          left: |-
+            class Boy
+              def initialize(money, girlfriend = nil)
+                @money = money
+                @girlfriend = girlfriend
+              end
+
+              def love
+                if !girlfriend.nil?
+                  even_amount_of_roses = !FlowerStore.enough_for(:rose, @money).odd?
+                  even_amount_of_tulips = !FlowerStore.enough_for(:tulip, @money).odd?
+                  if girlfriend.likes?(:rose) && even_amount_of_roses
+                    roses = FlowerStore.enough_for(:rose, @money).times.map { FlowerStore.buy(:rose, 1) }
+                    @girlfriend.give(roses)
+                  elsif girlfriend.likes?(:tulip) && even_amount_of_tulips
+                    tulips = FlowerStore.enough_for(:tulip, @money).times.map { FlowerStore.buy(:tulip, 1) }
+                    @girlfriend.give(tulips)
+                  else
+                    cactus = FlowerStore.beg_for_a_cactus(@money)
+                    @girlfriend.give(cactus)
+                  end
+                else
+                  GameStore.buy_game(:zelda)
+                end
+              end
+            end
+          right: |-
+            class Boy
+              def initialize(money, girlfriend = nil)
+                @money = money
+                @girlfriend = girlfriend
+              end
+
+              def love
+                return GameStore.buy_game(:zelda) unless girlfriend
+
+                flowers = %i[rose tulip].inject do |_, flower|
+                  flowers_amount = FlowerStore.enough_for(flower, @money)
+                  break FlowerStore.buy(flower, flowers_amount) if @girlfriend.likes?(flower) && flowers_amount.even?
+                end || FlowerStore.beg_for_a_cactus(@money)
+
+                @girlfriend.give(flowers)
+              end
+            end
+    - title: DTSTTCPW Principle
+      body:
+        - type: p
+          text: |-
+            POV: Your coleague asked you to create a service that will filter params except pre-defined.
+        - type: p
+          text: |-
+            Specs:
+        - type: p
+          text: |-
+            - Name is up to you.
+        - type: p
+          text: |-
+            - Maybe in future it could be used to validate array of params (hashes).
+        - type: p
+          text: |-
+            - Usage example:
         - type: code
           language: ruby
           text: |-
-            # prints Hello World
-            def hello_world
-              puts 'Hello world!'
+            safe_params = SafeParams[:id, :name, :email] # => returns instance of SafeParams
+            safe_params.call({ id: 'Lorem', name: 'Ipsum', email: 'Dolor', missing_key: 'Est' })
+            # => { id: 'Lorem', name: 'Ipsum', email: 'Dolor' }
+
+            # Or
+
+            safe_params = SafeParams[data: %i[id name email]] # => returns instance of SafeParams
+            safe_params.call({
+              data: { id: 'Lorem', name: 'Ipsum', email: 'Dolor', missing_key: 'Est' }
+              },
+              another_missing_key: 'I don\'t know next words in "Lorem Ipsum"'
+            )
+            # => { id: 'Lorem', name: 'Ipsum', email: 'Dolor' }
+        - type: code
+          hidden: true
+          language: ruby
+          text: |-
+            class SafeParams
+              def self.[](*args, **kwargs) = new(*args, **kwargs)
+
+              def initialize(*args, **kwargs)
+                @attributes = args.empty? ? kwargs : args
+              end
+
+              def call(params)
+                return params.slice(*@attributes) if @attributes.is_a?(Array)
+                
+                params[@attributes.keys.first].slice(*@attributes.values.first)
+              end
             end
+    - title: Build class by specs
+      body:
+        - type: comparison
+          hidden: true
+          language: ruby
+          left: |-
+            RSpec.describe Factory do
+              describe '.call' do
+                subject(:klass) { described_class.call(name, &block) }
+                
+                let(:name) { 'Person' }
+                let(:block) { -> { } }
+
+                context 'when name is blank' do
+                  subject(:klass) { described_class.call(&block) }
+
+                  it 'returns anonymous class' do
+                    expect(klass).to be_a(Class)
+                  end
+                end
+
+                context 'when name is present' do
+                  subject(:klass) { described_class.call(name, &block) }
+
+                  it 'returns cosntant <name>' do
+                    expect(klass).to eq(Kernel.const_get(string))
+                  end
+                end
+
+                context 'when attribute is defined inside block' do
+                  let(:method_name) { :name }
+                  let(:block) { ->(b) { b.attribute(method_name) } }
+
+                  it 'adds method to built class' do
+                    expect(klass).to be_method_defined(method_name)
+                  end
+                end
+
+                context 'when built class is used' do
+                  let(:instance) { klass.new(name: name) }
+                  let(:name) { 'John Doe' }
+                  let(:block) { ->(b) { b.attribute(:name) } }
+
+                  it 'stores name' do
+                    expect(instance.name).to eq(name)
+                  end
+                end
+              end
+            end
+          right: |-
+            class Factory
+              attr_reader :name, :block, :attributes
+
+              def self.call(name = nil, &block)
+                new(name, &block).call
+              end
+
+              def initialize(name, &block)
+                @name = name
+                @block = block
+                @attributes = []
+              end
+
+              def call
+                block[self]
+                name ? Factory.const_set(name, klass) : klass
+              end
+
+              def attribute(attribute_name)
+                @attributes << attribute_name
+              end
+
+              private
+
+              def klass
+                builder = self
+                Class.new do
+                  attr_accessor(*builder.attributes)
+
+                  define_method :initialize do |**options|
+                    builder.attributes.each do |attribute|
+                      instance_variable_set("@#{attribute}", options[attribute])
+                    end
+                  end
+                end
+              end
+            end
+        - type: p
+          hidden: true
+          center: true
+          text: Congratulations! You've created code using TDD

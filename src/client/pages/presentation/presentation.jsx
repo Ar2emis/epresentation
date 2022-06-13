@@ -14,7 +14,7 @@ export default function Presentation() {
 
   return (
     <ScrollToTop>
-      <Slide slide={presentation.slides[page - 1]}/>
+      <Slide slide={presentation.slides[page - 1]} key={page} />
       <Navigation presentation={presentation} page={page}/>
     </ScrollToTop>
   )
