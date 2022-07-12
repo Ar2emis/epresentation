@@ -27,6 +27,10 @@ const generateBuild = async () => {
     fs.copyFile('./src/client/assets/images/favicon.ico', './build/public/favicon.ico', (err) => {
       if (err) throw err
     })
+    fs.copySync('./src/client/assets/images/presentations', './build/public/presentation_assets', { overwrite: true },
+                (err) => {
+      if (err) throw err
+    })
 
   process.exit(0)
 };

@@ -1,3 +1,5 @@
 export { default as P } from './p'
 export { default as Code } from './code'
 export { default as Comparison } from './comparison'
+export { default as Image } from './image'
+export { default as Link } from './link'

@@ -1,0 +1,71 @@
+---
+data:
+  id: jets
+  title: RubyOnJets
+  description: RubyOnJets framework overview with images
+  slides:
+    - title: RubyOnJets
+      body:
+        - type: image
+          name: logo.png
+    - body:
+        - type: image
+          name: serverful.png
+    - body:
+        - type: image
+          name: serverless.png
+    - body:
+      - type: image
+        name: tung.png
+      - type: link
+        href: https://github.com/tongueroo
+        text: Tung Nguyen
+        center: true
+    - title: What's inside?
+      body:
+        - type: code
+          language: ruby
+          hidden: true
+          text: |-
+            # jets.gemspec
+            # ...
+            spec.add_dependency "actionmailer", "~> 6.1.0"
+            spec.add_dependency "actionpack", "~> 6.1.0"
+            spec.add_dependency "actionview", "~> 6.1.0"
+            spec.add_dependency "activerecord", "~> 6.1.0"
+            spec.add_dependency "activesupport", "~> 6.1.0"
+            spec.add_dependency "aws-mfa-secure", "~> 0.4.0"
+            spec.add_dependency "aws-sdk-apigateway"
+            spec.add_dependency "aws-sdk-cloudformation"
+            spec.add_dependency "aws-sdk-cloudwatchlogs"
+            spec.add_dependency "aws-sdk-dynamodb"
+            spec.add_dependency "aws-sdk-kinesis"
+            spec.add_dependency "aws-sdk-lambda"
+            spec.add_dependency "aws-sdk-s3"
+            spec.add_dependency "aws-sdk-sns"
+            spec.add_dependency "aws-sdk-sqs"
+            spec.add_dependency "aws-sdk-ssm"
+            spec.add_dependency "cfn-status"
+            spec.add_dependency "cfn_camelizer", ">= 0.4.9"
+            spec.add_dependency "cfn_response"
+            spec.add_dependency "dotenv"
+            spec.add_dependency "gems" # jets-gems dependency
+            spec.add_dependency "hashie"
+            spec.add_dependency "jets-html-sanitizer"
+            spec.add_dependency "kramdown"
+            spec.add_dependency "memoist"
+            spec.add_dependency "mini_mime"
+            spec.add_dependency "rack"
+            spec.add_dependency "railties", "~> 6.1.0" # for ActiveRecord database_tasks.rb
+            spec.add_dependency "rainbow"
+            spec.add_dependency "recursive-open-struct"
+            spec.add_dependency "serverlessgems", ">= 0.2.0"
+            spec.add_dependency "shotgun"
+            spec.add_dependency "text-table"
+            spec.add_dependency "thor"
+            spec.add_dependency "zeitwerk", ">= 2.6.0"
+            # ...
+    - title: How does it look like?
+      body:
+        - type: image
+          name: thonk.png

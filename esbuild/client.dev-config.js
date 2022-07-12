@@ -1,7 +1,7 @@
 const { build } = require('esbuild');
 const chokidar = require('chokidar');
 const servor = require('servor');
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const { yamlPlugin } = require('esbuild-plugin-yaml');
 
@@ -22,32 +22,38 @@ const { yamlPlugin } = require('esbuild-plugin-yaml');
     plugins: [yamlPlugin()]
   })
   const logError = (error) => console.error(error)
+  const copyPresentationAssets = () => {
+    fs.copySync('./src/client/assets/images/presentations', './build/public/presentation_assets', { overwrite: true },
+                (err) => { if (err) logError(err) })
+  }
+  const rebuild = () => {
+    builder.rebuild().catch(logError)
+    copyPresentationAssets()
+  }
 
   chokidar
-    .watch('./src/client/**/*.{js,jsx,css,yml}', {
+    .watch('./src/client/**/*.{js,jsx,css,yml,png,jpeg,jpg}', {
       awaitWriteFinish: {
         stabilityThreshold: 2000,
         pollInterval: 100,
       },
     })
-    .on('add', () => {
-      builder.rebuild().catch(logError)
-    })
+    .on('add', rebuild)
     .on('change', (path) => {
       console.log(`File ${path} has been changed to client app`)
-      builder.rebuild().catch(logError)
+      rebuild()
     })
     .on('unlink', (path) => {
       console.log(`File ${path} has been removed to client app`)
-      builder.rebuild().catch(logError)
+      rebuild()
     })
     .on('addDir', (path) => {
       console.log(`Directory ${path} has been added to client app`)
-      builder.rebuild().catch(logError)
+      rebuild()
     })
     .on('unlinkDir', (path) => {
       console.log(`Directory ${path} has been removed to client app`)
-      builder.rebuild().catch(logError)
+      rebuild()
     })
 
   fs.copyFile('./src/client/index.html', './build/public/index.html', (err) => {
@@ -56,6 +62,7 @@ const { yamlPlugin } = require('esbuild-plugin-yaml');
   fs.copyFile('./src/client/assets/images/favicon.ico', './build/public/favicon.ico', (err) => {
     if (err) throw err
   })
+  copyPresentationAssets()
 
   await servor({
     root: './build/public/',
